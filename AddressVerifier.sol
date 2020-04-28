@@ -63,5 +63,9 @@ contract AddressVerifier {
 
        return (v, r, s);
    }
+   
+   function isVerified(address userAddress) public view returns (bool) {
+       return verifiedAddresses[userAddress];
+   }
 
 }
