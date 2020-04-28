@@ -3,7 +3,6 @@ pragma solidity <0.7.0;
 contract AddressVerifier {
     
     address private owner;
-    address issuer;
     mapping(address => bool) public verifiedAddresses;
     
     event AddressVerified(address verifiedAddress);
@@ -26,7 +25,7 @@ contract AddressVerifier {
     }
 
    
-    function verify(address newAddress, bytes32 hash, bytes memory sig) public {
+    function verify(address newAddress, address issuer, bytes32 hash, bytes memory sig) public {
        uint8 v;
        bytes32 r;
        bytes32 s;
